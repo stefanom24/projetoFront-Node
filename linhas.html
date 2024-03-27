@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Registro Linha </title>
+</head>
+<body>
+    <a href="/index" > Voltar </a>
+
+    <h1> Registrar Linhas </h1>
+
+    <form action="/registroLinha", method="post">
+        <label for="NomeLinha"> Nome da Linha: </label>
+        <input type="text" id="NomeLinha" name="NomeLinha">
+        <label for="Estacoes"> Numero de Estaões </label>
+        <input type="number" id="Estacoes" name="Estacoes">
+        <label for="Extensao"> Extrensão da Linha </label>
+        <input typr="number" id="Extensao" name="Extensao">
+
+        <p> Trecho </p>
+        <label for="Velocidade"> Velocidade </label>
+        <select id="Velocidade" name="Velocidade">
+            <option value=""> Nivel 1 </option>
+            <option value=""> Nivel 2 </option>
+            <option value=""> Nivel 3 </option>
+            <option value=""> Nivel 4 </option>
+        </select>
+        
+        <label for="Carga"> Tem Carga em Circulação</label>
+        <select id="Carga" name="Carga" >
+            <option value=""> Sim </option>
+            <option value=""> Nao </option>
+        </select>
+        
+        <label for="HW"> Hw </label>
+        <input type="number" id="HW" name="HW">
+        <label for="Viagens"> Numero de Viagens </label>
+        <input type="number" id="Viagens" name="Viagens">
+        <label for="MediaPassageiros"> Media de Passageiros </label>
+        <input type="number" id="MediaPassageiros" name="MediaPassageiros">
+        <label for="ConsumoEnergia"> Consumo de Energia </label>
+        <input type="number" id="ConsumoEnergia" name="ConsumoEnergia">
+    
+    </form>
+    
+</body>
+</html>

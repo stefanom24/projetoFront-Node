@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const fs = require('fs');
 
 // Deixando o node/express utilizar e ler arquivos html
 app.use(express.urlencoded({extended: true}));
@@ -18,6 +19,11 @@ app.get('/', (req, res) => {
 app.get('/trens', (req, res) => {
     res.render('trens');
 });
+
+// Recebendo dados do cadastro de trens
+app.post('/trens', (req, res) => {
+    //Fazer toda logica de escrever para json.
+})
 
 // Roteando pagina cadastro de linhas
 app.get('/linhas', (req, res) => {
@@ -46,10 +52,29 @@ app.get('/ocoEstacoes', (req, res) => {
 
 // Recebendo dados do Login
 app.post('/login', (req, res) => {
-    let user = req.body.loginEmail;
+    let email = req.body.loginEmail;
     let password = req.body.loginPassword;
-    console.log(`seu usuario e: ${user} e sua senha e: ${password}`);
+    const loginFile = require('./login.json');
+    let user = {
+        "email": email,
+        "password": password
+    }
+    loginFile.users.push(user);
 
+    fs.writeFile('login.json', JSON.stringify(loginFile), err => {
+        //checando erros
+        if (err) return err;
+
+        console.log('Gravado');
+    })
+
+    fs.readFileSync('./login.json', 'utf8', (err, data) => {
+        if (err) console.error(err);
+        const login = JSON.parse(data);
+      
+        console.log(login[1].value);
+    });
+    
 })
 
 app.listen(3000, () => {

@@ -1,6 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <title>Home</title>
+</head>
 
-  <body>
-    <h1> Trens </h1>
+<body>
+    <header>
+        <%- include ('navbar') %>
+    </header>
+    
+    <main>
+      <h1> Trens </h1>
 
 
     <h2>Modelos</h2>
@@ -8,7 +21,7 @@
       <option value="modelo1">Modelo 1</option>
       <option value="modelo2">Modelo 2</option>
       <option value="modelo3">Modelo 3</option>
-  </select>
+    </select>
 
     <h2>Codigo ID</h2>
     <input type="text" id="codigoID" name="codigoID">
@@ -18,26 +31,39 @@
       <option value="linha1">linha 1</option>
       <option value="linha2">linha 2</option>
       <option value="linha3">linha 3</option>
-  </select>
+    </select>
 
-  <h2>Status</h2>
-  <select name="status" id="status">
-    <option value="ativo">Ativo</option>
-    <option value="inativo">Inativo</option>
-  </select>
+    <h2>Status</h2>
+    <select name="status" id="status">
+      <option value="ativo">Ativo</option>
+      <option value="inativo">Inativo</option>
+    </select>
 
-  <h2>Classificação</h2>
-  <select name="classificacao" id="classificacao">
-    <option value=""></option>
-    <option value=""></option>
-    <option value=""></option>
-    <option value=""></option>
-  </select>
-
-
-  <input type="submit" name="Enviar" id="Enviar">
+    <h2>Classificação</h2>
+    <select name="classificacao" id="classificacao">
+      <option value=""></option>
+      <option value=""></option>
+      <option value=""></option>
+      <option value=""></option>
+    </select>
 
 
+    <input type="submit" name="Enviar" id="Enviar">
 
-  <div class="container-fluid"></div>
+
+
+    <div class="container-fluid"></div>
+    </main>
+
+    <footer>
+        <%- include ('footer') %>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+  <body>
+    
   </body>

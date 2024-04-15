@@ -13,21 +13,40 @@
     </header>
     
     <main>
-        <h2>Registro de Estações</h2>
+        <div class="text-center"><h2 class="display-2"> 
+            <p class="text-center"><div class="badge bg-primary text-wrap" style="width: 40rem;">Registro de Estações</div></p>
+        </h2></div>
         <form action="/result" method="get">
-           <label for="nome">Nome:</label>
-           <input type="text" id="nome" name="nome" required>
+
+            <div class="d-flex align-items-center justify-content-center vh-20">
+                <div class="form-floating mb-3 w-50">
+                  <input type="text" class="form-control" id="nome" placeholder="nome">
+                  <label for="nome">Nome: </label>
+                </div>
+            </div>
    
-           <label for="LinhaPertence">Linha que Pertence:</label>
-           <select name="LinhaPertence" id="LinhaPertence">
-               <option value=""></option>
+            <div class="text-center"><label for="LinhaPertence">Linha que Pertence:</label></div>
+            <div class="d-flex align-items-center justify-content-center vh-20"> 
+                <select class="form-select w-50" name="LinhaPertence" id="LinhaPertence">
+                    <option value=""></option>
    
-           </select>
-           
-           <label for="km">Kilometragem (KM):</label>
-           <input type="number" id="km" name="km" min="0" required>
-   
-           <input type="submit" value="Enviar">
+                </select>
+            </div>
+            
+
+            <div class="d-flex align-items-center justify-content-center vh-20">
+                <div class="form-floating mb-3 w-50">
+                  <input type="text" class="form-control" id="km" placeholder="nome">
+                  <label for="km">Kilometragem (KM): </label>
+                </div>
+            </div>
+
+
+            <div class="text-center"><h2 class="display-2"> 
+                <input class="btn btn-primary" type="Enviar" value="Enviar">
+            </div>
+
+           <div class="container-fluid"></div>
         </form>
     </main>
 

@@ -23,7 +23,7 @@ app.get('/trens', (req, res) => {
 // Recebendo dados do cadastro de trens
 app.post('/trens', (req, res) => {
     //Fazer toda logica de escrever para json.
-})
+});
 
 // Roteando pagina cadastro de linhas
 app.get('/linhas', (req, res) => {
@@ -54,29 +54,56 @@ app.get('/ocoEstacoes', (req, res) => {
 app.post('/login', (req, res) => {
     let email = req.body.loginEmail;
     let password = req.body.loginPassword;
-    const loginFile = require('./login.json');
+    
     let user = {
         "email": email,
         "password": password
     }
-    loginFile.users.push(user);
-
-    fs.writeFile('login.json', JSON.stringify(loginFile), err => {
-        //checando erros
-        if (err) return err;
-
-        console.log('Gravado');
-    })
-
-    fs.readFileSync('./login.json', 'utf8', (err, data) => {
-        if (err) console.error(err);
-        const login = JSON.parse(data);
-      
-        console.log(login[1].value);
+    gravar(user, () => { // Passa a função `ler` como callback para ser chamada após `gravar`
+        ler(() => {
+            if(user.email == "stefanom24@gmail.com"){
+                console.log('Login feito com sucesso!');
+                res.redirect('/');
+            }
+        }) 
     });
-    
-})
+});
 
 app.listen(3000, () => {
     console.log('Servidor iniciado.');
 });
+
+function gravar(user, callback){
+    const fs = require('fs');
+    let loginFile;
+    try {
+        loginFile = require('./login.json');
+    } catch (error) {
+        loginFile = { users: [] }; // Cria um novo objeto se o arquivo não existir
+    }
+    loginFile.users.push(user);
+    fs.writeFile('login.json', JSON.stringify(loginFile), err => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        console.log('Gravado');
+        callback(); // Chama `ler` somente após o arquivo ser gravado
+    });
+};
+
+function ler(callback){
+    const fs = require('fs');
+    fs.readFile('./login.json', 'utf8', (err, data) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        const login = JSON.parse(data);
+        // Verifica se o caminho desejado existe antes de tentar acessá-lo
+        if (login.users && login.users.length > 1) {
+            console.log(login.users[1].email); // Supondo que você quer acessar o email do segundo usuário
+        }  
+    });
+    callback();
+};

@@ -31,7 +31,7 @@
    
        <div class="d-flex align-items-center justify-content-center vh-20">
          <div class="form-floating mb-3 w-50">
-           <input type="text" class="form-control" id="codigoID" placeholder="1234567890">
+           <input type="text" class="form-control" id="codigoID" name="codigoID" placeholder="1234567890">
            <label for="codigoID">Codigo ID</label>
          </div>
        </div>
@@ -53,15 +53,20 @@
            </select>
        </div>
    
-       <div class="text-center"><label for="cla" class="form-label">Classificação</label></div>
+       <div class="text-center"><label for="sentido" class="form-label">Sentido</label></div>
        <div class="d-flex align-items-center justify-content-center vh-20">
-           <select class="form-select w-50" name="classificacao" id="classificacao">
-             <option value=""></option>
-             <option value=""></option>
-             <option value=""></option>
-             <option value=""></option>
+           <select class="form-select w-50" name="sentido" id="sentido">
+             <option value="Ida">Ida</option>
+             <option value="Volta">Volta</option>
            </select>
        </div>
+
+       <div class="d-flex align-items-center justify-content-center vh-20">
+        <div class="form-floating mb-3 w-50">
+          <input type="text" class="form-control" id="blocoatual" name="blocoatual" placeholder="1234567890">
+          <label for="blocoatual">Bloco Atual</label>
+        </div>
+      </div>
    
        <div class="text-center"><h1 class="display-3"> 
          <input class="btn btn-primary" type="Enviar" value="Enviar">
